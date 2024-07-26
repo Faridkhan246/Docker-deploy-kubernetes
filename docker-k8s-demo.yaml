@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadeta:
+  name: docker-k8s-demo-deployment
+  label:
+    app: docker-k8s-demo
+spec:
+  replices:
+  selector:
+    matchLabels:
+      app: docker-k8s-demo
+  template:
+    metadata:
+      labels:
+        app: docker-k8s-demo
+    spec:
+      containers:
+      - name: docker-k8s-demo
+        image: sumitplayjava/docker-demo
+        ports:
+        - containerPort: 8080            
